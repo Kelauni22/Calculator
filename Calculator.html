@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang = en>
+<head>
+	<meta charset = "UTF-8">
+		<meta description = "Some webpage">
+		<link rel="stylesheet" href = "CalculatorCSS.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>Calculator</title>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        
+</head>
+
+<body>
+<br>
+<br>
+<br>
+<div align = "center"><h1><strong>"Kelauni's Calculator"</strong><h1></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+	<div>
+		<div class = "container">
+		
+			<div class = "row">
+				<div class = "col-xs-2"></div>				
+				<div class = "col-xs-8 container_color"></div>
+				<div class = "col-xs-2"></div>
+			</div>
+				 
+			
+			<div class = "row">
+				<div class = "col-xs-2"></div>
+				<div align = "center">
+					<div class = "col-xs-6 container_color"></div>
+						<div id="results displaywindow" >My results!</div>
+					<div class = "col-xs-2 container_color" onClick ="clearNumber()"><button>AC</button></div>
+				</div>
+				<div class = "col-xs-2"></div>
+			</div>
+			
+			<div class = "row">
+				<div class = "col-xs-2"></div>
+					<div align = "center">
+						<div class = "col-xs-2 container_color" onClick="pushNumber(7)"><button>7</button></div>
+						<div class = "col-xs-2 container_color" onClick="pushNumber(8)"><button>8</button></div>
+						<div class = "col-xs-2 container_color" onClick="pushNumber(9)"><button>9</button></div>
+						<div class = "col-xs-2 container_color" onClick= "plus()"><button>+</button></div>
+					</div>
+				<div class = "col-xs-2"></div>
+			</div>	
+				 
+					
+			<div class = "row">	
+				<div class = "col-xs-2"></div>
+					<div align = "center">
+						<div class = "col-xs-2  container_color" onClick="pushNumber(4)"><button>4</button></div>
+						<div class = "col-xs-2  container_color" onClick="pushNumber(5)"><button>5</button></div>
+						<div class = "col-xs-2  container_color" onClick="pushNumber(6)"><button>6</button></div>
+						<div class = "col-xs-2  container_color" onClick = "minus()"><button>-</button></div>
+					</div>
+				<div class = "col-xs-2"></div>				
+			</div>
+			
+			
+			<div class = "row">	
+				<div class = "col-xs-2"></div>
+					<div align = "center">
+						<div class = "col-xs-2  container_color" onClick="pushNumber(1)"><button>1</button></div>
+						<div class = "col-xs-2  container_color" onClick="pushNumber(2)"><button>2</button></div>
+						<div class = "col-xs-2  container_color" onClick="pushNumber(3)"><button>3</button></div>
+						<div class = "col-xs-2  container_color" onClick = "multiply()"><button>*</button></div>
+					</div>
+				<div class = "col-xs-2"></div>				
+			</div>
+			
+			<div class = "row">
+				<div class = "col-md-2"></div>
+					<div>
+						<div class = "col-md-4  container_color zerosize" onClick="pushNumber(0)"><button>0</button></div>
+						<div class = "col-xs-2  container_color" onClick = "equals()"><button>=</button></div>
+						<div class = "col-xs-2 container_color" onClick = "divide()"><button>/</button></div>
+					</div>
+				<div class = "col-md-2"></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+
+
+<script>
+	document.getElementById("results").innerHTML = "Testing!";
+	
+	var currentNumber = 0;
+	var memoryNumber= 0;
+	
+	function pushNumber(number) {
+	
+	currentNumber = currentNumber * 10;
+	currentNumber += number;
+	document.getElementById("results").innerHTML = currentNumber;
+	
+	}
+	
+	function plus() {
+	
+	memoryNumber = currentNumber;
+	currentNumber = 0;
+	lastOperator = "+";
+	
+	}
+	
+	function minus() {
+	
+	memoryNumber = currentNumber;
+	currentNumber = 0;
+	lastOperator = "-";
+	
+	}
+	
+	function multiply() {
+	
+	memoryNumber = currentNumber;
+	currentNumber = 0;
+	lastOperator = "*";
+	}
+	
+	function divide() {
+	
+	memoryNumber = currentNumber;
+	currentNumber = 0;
+	lastOperator = "/";
+	
+	}
+	
+	function clearNumber() {
+	
+	currentNumber = 0;
+	document.getElementById("results").innerHTML = currentNumber;
+	
+	}
+	
+	function equals(){
+	
+		switch (lastOperator){
+		
+		case "+":
+			currentNumber = currentNumber + memoryNumber;
+			document.getElementById("results").innerHTML = currentNumber;
+		break;
+		case "-":
+			currentNumber = memoryNumber - currentNumber ;
+			document.getElementById("results").innerHTML = currentNumber;
+		break;
+		case "*":
+			currentNumber = currentNumber * memoryNumber;
+			document.getElementById("results").innerHTML = currentNumber;
+		break;
+		case "/":
+			currentNumber = memoryNumber / currentNumber;
+			document.getElementById("results").innerHTML = currentNumber;
+		break;
+			
+		
+		}
+	
+	}
+</script>
+
+
+
+
+</html>

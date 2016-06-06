@@ -1,0 +1,38 @@
+.container_color{
+	
+	background-color: #1BDA8F;
+	height: 80px;
+}
+
+button{
+	
+	height: 60px;
+	width: 160px;
+	border-style: outset;
+	border-color: #F0F1F1;
+	border-width: 7px;
+	
+}
+
+.rowheight{
+	
+	height: 40px;
+	
+}
+
+.zerosize{
+	
+	width: 200px;
+}
+
+.border{
+	
+	border-style: outset;
+	border-color: #17B879;
+	border-width: 7px;
+}
+
+.displaywindow{
+	
+	background: #FFFFFF;
+}
